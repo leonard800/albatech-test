@@ -1,14 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Homepage';
+import Profile from './pages/Profile';
 import Login from './pages/Login';
-import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/profile" element={<h1>Profile</h1>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
