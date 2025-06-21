@@ -61,12 +61,14 @@ export default function LoginForm() {
         />
       </div>
       {error && <p className="text-red-500">{error}</p>}
-      <button
-        type="submit"
-        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-      >
-        Login
-      </button>
+      <div className="flex justify-center">
+        <button
+          type="submit"
+          className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded-full transition duration-300 !bg-yellow-400 !text-black"
+        >
+          Login
+        </button>
+      </div>
     </form>
   );
 }
