@@ -10,7 +10,9 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <div className="flex items-center">
-          <img src="/logo.png" alt="Alba Logo" className="h-10 w-auto" />
+          <Link to="/">
+            <img src="/logo.png" alt="Alba Logo" className="h-10 w-auto" />
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center space-x-8">
