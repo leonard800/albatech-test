@@ -9,21 +9,40 @@ export default function LoginForm() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!password.trim()) {
+      setError("Password tidak boleh kosong.");
+      return;
+    }
+
     try {
-      const res = await axios.post('https://reqres.in/api/login', {
-        email: 'eve.holt@reqres.in',
-        password,
-      });
-      navigate('/profile', { state: { token: res.data.token } });
-    } catch {
-      setError('Sorry, we cannot log you in, please try again!');
+      const res = await axios.post(
+        "https://reqres.in/api/login",
+        {
+          email: "eve.holt@reqres.in",
+          password: password,
+        },
+        {
+          headers: {
+            "x-api-key": "reqres-free-v1", 
+          },
+        }
+      );
+
+      console.log("Login berhasil, token:", res.data.token);
+      navigate("/profile", { state: { token: res.data.token } });
+    } catch (err: any) {
+      console.error("Login gagal:", err.response?.data || err.message);
+      setError("Login gagal. Pastikan password benar.");
     }
   };
+
+
 
   return (
     <form onSubmit={handleLogin} className="space-y-4">
       <div>
-        <label>Email</label>
+        <label className="block">Email</label>
         <input
           type="text"
           value="eve.holt@reqres.in"
@@ -32,7 +51,7 @@ export default function LoginForm() {
         />
       </div>
       <div>
-        <label>Password</label>
+        <label className="block">Password</label>
         <input
           type="password"
           value={password}
