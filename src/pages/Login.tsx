@@ -9,7 +9,6 @@ export default function Login() {
           <p className="text-gray-600">
             Masuk ke akun Anda untuk mengakses fitur.
           </p>
-          <img src="/login-illustration.svg" className="w-80 mt-6" />
         </div>
         <div className="bg-gray-50 p-8 rounded-lg shadow w-full">
           <h2 className="text-xl font-semibold mb-4">Login</h2>
